@@ -1,0 +1,19 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+{% block title2 %}PX 추천템{% endblock %}
+{% block link %}{% static 'css/cosmetics.css' %}{% endblock %}
+
+{% block content %}
+  <div class="container">
+      <div id="designer" class="row featurette">
+          <div class="col-md-6">
+              <h2 class="featurette-heading">{{ items.name }}<span id="namedeco" class="text-muted">화장품</span></h2>
+              <p class="lead">{{ items.description }}</p>
+          </div>
+          <div class="col-md-4">
+              <img src="{% static 'images/cosmetic1.png' %}" width="150%" alt="Items_Profile_Image">
+          </div>
+      </div>
+  </div>
+{% endblock %}

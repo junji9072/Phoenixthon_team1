@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}{% static 'css/login.css' %}{% endblock %}
+
+{% block content %}
+
+<div class="wall"></div>
+<div class="container">
+
+    <div class="wall"></div>
+    <div class="card" style="width: 400px; height: 500px">
+
+        <h2 id="login_title t4">회원가입-선택</h2>
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div class="select_container">
+                <a href="{% url 'civil_signup' %}">
+                    <button class="btn">일반인</button>
+                </a>
+                <a href="{% url 'soldier_signup' %}">
+                    <button class="btn">군인</button>
+                </a>
+            </div>
+        </form>
+
+    </div>
+
+</div>
+
+
+{% endblock %}
+
+
+
+
+<body>
+    <!-- 헤드, 메뉴바 -->
+    <h1 id="main_title">디스캠프</h1>
+    <div id="menubar">
+        <ul id="menubar_ul">
+            <a href="#">
+                <li class="menubar_li">메뉴</li>
+            </a>
+            <a href="#">
+                <li class="menubar_li">메뉴</li>
+            </a>
+            <a href="#">
+                <li class="menubar_li">메뉴</li>
+            </a>
+        </ul>
+    </div>
+
+    <hr class="line1">
+
+    <h2 id="login_title"></h2>
+
+    <hr class="line2">
+
+    <div>
+
+    </div>
+</body>
+
+</html>

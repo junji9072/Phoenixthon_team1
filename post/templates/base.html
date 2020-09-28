@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% block style %}{% endblock %}">
+</head>
+
+<body>
+    <h1 id="main_title">디스캠프</h1>
+    <div id="menubar">
+        <ul id="menubar_ul">
+            <a href="#" style="height:100%"><li class="menubar_li">메뉴</li></a>
+            <a href="#" style="height:100%"><li class="menubar_li">메뉴</li></a>
+            <a href="#" style="height:100%"><li class="menubar_li">메뉴</li></a>
+        </ul>
+    </div>
+
+    
+    <!-- Body -->
+    <hr class="line1" >
+        <h2 id="login_title">{% block title2 %}{% endblock %}</h2>
+    <hr class="line2">
+
+    {% block content %}{% endblock %}
+</body>
+
+</html>

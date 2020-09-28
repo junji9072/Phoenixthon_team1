@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <title>편지 수정</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{% static 'js/letter_create.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/letter_create.css' %}"/>
+</head>
+<body>
+<div class="container">
+    <label>
+    <form enctype="multipart/form-data" action="{% url 'letter-update' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{ form.instance.id }}"/>
+        <div class="letter-form">
+            {{ form.as_p }}
+        </div>
+        <button type="submit">수정완료</button>
+    </form>
+    </label>
+</div>
+</body>
+</html>

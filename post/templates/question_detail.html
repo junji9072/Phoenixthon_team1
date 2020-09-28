@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}질문-자세히보기{% endblock %}
+{% block style %}{% static 'css/detail.css' %}{% endblock %}
+{% block title2 %}질문-자세히보기{% endblock %}
+{% block content %}
+<div class="detail_line">
+    <span id="detail_title_user"><span id="bold_user" >작성자</span>{{post.user}}</span>
+    <span id="detail_title_date"><span id="bold_date" >작성날짜</span>{{post.updated_at}}</span>
+</div>
+
+<hr class="list_line_line">
+
+<div class="detail_line">
+    <span id="detail_title_title"><span id="bold_title">제목</span>{{post.title}}</span>
+</div>
+
+<hr class="list_line_line">
+
+<div class="detail_line2">
+    <span id="detail_title_title"><span id="bold_title">내용</span><span id="content_box">{{post.content}}</span></span>
+</div>
+
+<hr class="list_line_line">
+
+<div id="btn_set" style="margin-bottom: 10px;">
+    <a href={% url 'question_list' %}>
+        <button class="btn">
+            목록
+        </button>
+    </a>
+
+    <a href={% url 'question_update' post.id %}>
+        <button class="btn">
+            수정
+        </button>
+    </a>
+
+    <a href={% url 'question_delete' post.id %}>
+        <button class="btn">
+            삭제
+        </button>
+    </a>
+</div>
+<div id="btn_set" style="margin-top: 10px;;">
+    <a href={% url 'answer_create' post.id %}>
+        <button class="btn2">
+            답변하기
+        </button>
+    </a>
+</div>
+
+<hr class="next_line" style="margin-bottom: 0px;">
+
+    <hr class="line1">
+<div style="width: 80%; background-color:powderblue;">
+        <h2 id="login_title">답변</h2>
+</div>
+    <hr class="line2" style="margin-bottom: 80px;">
+
+
+{% for answer in answers%}
+<div class="detail_line">
+    <span id="detail_title_user"><span id="bold_user">작성자</span>{{answer.user}}</span>
+    <span id="detail_title_date"><span id="bold_date">작성날짜</span>{{answer.updated_at}}</span>
+</div>
+
+<hr class="list_line_line">
+
+<div class="detail_line">
+    <span id="detail_title_title"><span id="bold_title">제목</span>{{answer.title}}</span>
+</div>
+
+<hr class="list_line_line">
+
+<div class="detail_line2">
+    <span id="detail_title_title"><span id="bold_title">내용</span><span id="content_box">{{answer.content}}</span></span>
+</div>
+
+<hr class="list_line_line">
+
+<div id="btn_set">
+    <a href={% url 'answer_update' post.id answer.id %}>
+        <button class="btn">
+            수정
+        </button>
+    </a>
+
+    <a href={% url 'answer_delete' post.id answer.id %}>
+        <button class="btn">
+            삭제
+        </button>
+    </a>
+</div>
+
+<hr class="next_line">
+
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}{% static 'css/add_soldier.css' %}{% endblock %}
+
+{% block content %}
+
+<div class="wall"></div>
+<div class="container">
+
+    {% if user.is_authenticated %}
+    {% if user.usertype == 'civil' %}
+
+    <div class="second-container">
+
+        <div class="left-arrow"></div>
+        <div class="right-arrow"></div>
+        <div class="army-card-view" id="scroll-effect">
+
+            {% for soldier in soldiers %}
+            <div class="army-card">
+                <div class="army-info">
+                    <div class="small-info">
+                        {% if soldier.get_d_day < 0 %}
+                        <p class="t6">전역</span></p>
+                        {% else %}
+                        <p class="t6">D - <span id="day">{{ soldier.get_d_day }}</span></p>
+                        {% endif %}
+                        <p class="t2">{{ soldier.print_leave_day }}</p>
+                    </div>
+                    <div class="profile">
+                        <!-- <div class="picture"></div> -->
+                        <div>
+                            <p class="t2">{{ soldier.military_type }} | {{ soldier.name }} |
+                                {{ soldier.get_rank }}</span></p>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="{% url 'add_my_soldier' user.id soldier.id %}">
+                            <button class="btn">등록</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            {% endif %}
+            {% endif %}
+
+        </div>
+    </div>
+
+    {% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}질문-목록{% endblock %}
+{% block style %}{% static 'css/list.css' %}{% endblock %}
+{% block title2 %}질문-목록{% endblock %}
+{% block content %}
+    <div class="list_line">
+        <span class="list_title_set">제목</span>
+        <span class="list_user_set">작성자</span>
+        <span class="list_date_set">등록일자</span>
+    </div>
+    
+    <hr class="list_line_line">
+
+    <!-- 리스트 -->
+    {% for question in questions %}
+    <a href="{% url 'question_detail' question.id %}" style="width: 70%;">
+        <div class="list_line2">
+            <span class="list_title_set">{{question.title}}</span>
+            <span class="list_user_set">{{question.user}}</span>
+            <span class="list_date_set">{{question.updated_at}}</span>
+        </div>
+    </a>
+    <hr class="list_line_line">
+    {% endfor %}
+
+    <a href="{% url 'question_create' %}" style="width: 70%; text-align:right;">
+        <button id="btn">추가하기</button>
+    </a>
+{% endblock %}}

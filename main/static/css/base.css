@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700&display=swap');
+@import url('reset.css');
+@import url('font_size.css');
+
+:root {
+    --CONTAINER_SIZE: 100vw;
+    --MARGIN_BETWEEN_BOX: 70px;
+    --PERSONAL_COLOR1: #557571;
+    --PERSONAL_COLOR2: #d49a89;
+    --PERSONAL_COLOR3: #f7d1ba;
+    --PERSONAL_COLOR4: #f4f4f4;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    background: #2C3E50;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4CA1AF, #2C3E50);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4CA1AF, #2C3E50);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: 'Noto Sans KR', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 1000vh;
+
+    overflow-x: hidden;
+}
+
+@keyframes stretch {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes zoomOut {
+    from {
+        transform: scale(1.2);
+        filter: brightness(50%);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.wall {
+    height: 76px;
+    width: 100%;
+}
+
+.card {
+    background-color: #fff;
+    width: 70%;
+    height: 1000px;
+    border-radius: 3px;
+    box-shadow: 1px 5px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.card p {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.btn {
+    background-color: #4CA1AF;
+    width: 100px;
+    height: 50px;
+    outline: 0;
+    border: 0;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #fff;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn a {
+    color: #fff;
+}
+
+.round-btn {
+    width: 200px;
+    height: 200px;
+    outline: 0;
+    border: 2px solid #4CA1AF;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 20px;
+    color: #4CA1AF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+}
+
+.round-btn:active {
+    transform: scale(0.98);
+}
+
+.header {
+    width: 100%;
+    height: 76px;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.logo-box {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background-color: var(--PERSONAL_COLOR1);
+}
+
+.menu-box,
+.account-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 15px;
+}
+
+.menu-box {
+    width: 500px;
+}
+
+
+.menu-box a,
+.account-box a {
+    color: #555;
+}
+
+.menu-box a:hover {
+    color: var(--PERSONAL_COLOR1);
+}
+
+.menu-box a {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: width .3s linear;
+}
+
+.account-box {
+    width: 300px;
+    display: flex;
+    position: absolute;
+    right: 0;
+    font-size: 13px;
+}
+
+.account-box a:not(:nth-last-of-type(1)) {
+    margin-right: 30px;
+}
+
+.menu-box a:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: var(--PERSONAL_COLOR1);
+    animation: stretch .2s linear;
+}
+
+.menu-box a:not(:last-child) {
+    margin-right: 62px;
+}
+
+.container {
+    width: var(--CONTAINER_SIZE);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.second-container {
+    width: 700px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}

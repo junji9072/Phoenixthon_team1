@@ -1,0 +1,46 @@
+.list_line{
+    width: 70%;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.list_line2{
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.list_title_set{
+    display: block;
+    width:55%;
+}
+.list_user_set{
+    display: block;
+    width:20%;
+}
+.list_date_set{
+    display: block;
+    width:25%;
+}
+
+.list_line_line{
+    flex-direction: column;
+    width: 70%;
+    border-color: lightslategray;
+    border-width: 0.5px;;
+}
+
+a:link {text-decoration: none; color: #333333;}
+a:visited {text-decoration: none; color: #333333;}
+a:active {text-decoration: none; color: #333333;}
+a:hover {text-decoration: none; color: #333333;}
+
+#btn{
+    width: 150px;
+    height: 35px;
+    margin-top: 30px;
+}

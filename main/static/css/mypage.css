@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700&display=swap');
+@import url('reset.css');
+@import url('font_size.css');
+
+:root {
+    --CARD_SIZE: 500px;
+    --PERSONAL_COLOR1: #557571;
+    --PERSONAL_COLOR2: #d49a89;
+    --PERSONAL_COLOR3: #f7d1ba;
+    --PERSONAL_COLOR4: #f4f4f4;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--PERSONAL_COLOR4);
+    font-family: 'Noto Sans KR', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    animation: fadeIn 1s linear;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.header,
+.content {
+    width: 100%;
+}
+
+.header {
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background-color: var(--PERSONAL_COLOR1);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.bottom-bar {
+    margin-top: 20px;
+    background-color: #fff;
+    width: 50px;
+    height: 3px;
+}
+
+.content {
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-card {
+    /* background-color: var(--PERSONAL_COLOR2); */
+    background: #2C3E50;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4CA1AF, #2C3E50);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4CA1AF, #2C3E50);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    border-radius: 10px;
+    width: var(--CARD_SIZE);
+    height: 50%;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+}
+
+.info-card:hover {
+    transform: translate3d(0, -15px, 0);
+}
+
+.profile,
+.menu {
+    width: 100%;
+}
+
+.profile {
+    height: 70%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.profile label:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+.default-info,
+.army {
+    width: 30%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.default-info {
+    text-align: left;
+}
+
+.army {
+    text-align: right;
+}
+
+.menu {
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu li {
+    border: 2px solid #fff;
+    border-radius: 20px;
+    padding: 10px 15px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu a:not(:nth-last-child(1)) {
+    margin-right: 10px;
+}
+
+.menu li:active {
+    transform: scale(0.98);
+}
+
+.menu a {
+    color: #fff;
+}

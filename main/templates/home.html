@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}{% static 'css/home.css' %}{% endblock %}
+{% block content %}
+
+<!-- Main -->
+<div class="container">
+
+    <div class="wall"></div>
+
+    <div class="main-pic">
+        <div class="main-desc">
+            <p class="t6" style="color: #74a39d;">This Camp</p>
+            <p class="t4">여전히 빛나는 당신을 응원합니다!</p>
+            {% if user.is_authenticated %}
+            <button class="btn">시작하기</button>
+            {% else %}
+            <a href="{% url 'login' %}"><button class="btn">로그인</button></a>
+            {% endif %}
+        </div>
+        <img src="{% static 'image/image.jpg' %}" alt="image.jpg">
+    </div>
+
+    <div class="second-wall"></div>
+
+    {% if user.is_authenticated %}
+    <div class="second-container">
+        <div class="left-arrow"></div>
+        <div class="right-arrow"></div>
+        <div class="army-card-view" id="scroll-effect">
+
+            {% for soldier in soldiers %}
+            <div class="army-card">
+                <div class="army-info">
+                    <div class="small-info">
+                        {% if soldier.get_d_day < 0 %}
+                        <p class="t6">전역</span></p>
+                        {% else %}
+                        <p class="t6">D - <span id="day">{{ soldier.get_d_day }}</span></p>
+                        {% endif %}
+                        <p class="t2">{{ soldier.print_leave_day }}</p>
+                    </div>
+                    <div class="profile">
+                        <!-- <div class="picture"></div> -->
+                        <div>
+                            <p class="t2">{{ soldier.military_type }} | {{ soldier.name }} |
+                                {{ soldier.get_rank }}</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            <div class="army-card">
+                <div class="army-info">
+                    <div class="small-info">
+                        <a href="{% url 'add_soldier' %}">
+                            <button class="round-btn">
+                                +
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="wall" style="height: 100px;"></div>
+
+    <div class="letter-box" id="scroll-effect">
+        <div class="letter-desc">
+            <div class="letter-text">
+                <h1>편지</h1>
+                <p>보고 싶은 군인에게 편지를 전달합시다.</p>
+                <a href="{% url 'letter' %}">
+                    <button class="btn">편지 쓰기</button>
+                </a>
+            </div>
+        </div>
+        <div class="letter-img">
+            <img src="{% static 'image/army.jpg' %}" alt="army.jpg">
+        </div>
+    </div>
+
+    {% endif %}
+
+    <div class="wall" style="height: 200px;"></div>
+
+    <div class="notice-box" id="scroll-effect">
+        <div class="notice-desc">
+            <div class="notice-text">
+                <h1>공지사항</h1>
+                <p>군인들의 소식을 전합니다.</p>
+                <a href="{% url 'notice_list' %}">
+                    <button class="btn">확인</button>
+                </a>
+            </div>
+        </div>
+        <div class="notice-img">
+            <img src="{% static 'image/army.jpg' %}" alt="army.jpg">
+        </div>
+    </div>
+
+    <!-- <div class="test">
+
+            <p>
+                Lorem Ipsum
+            </p>
+            <p>
+                "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+            </p>
+            <p>
+                "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is
+                pain..."
+            </p>
+            <p>
+                Generated 5 paragraphs, 352 words, 2328 bytes of Lorem Ipsum
+            </p>
+
+        </div> -->
+
+    <!-- <div class="test"></div> -->
+
+    <!-- 보고싶은군인, 공지 -->
+    {% comment %}
+    <div class="army">
+        <div class="left-arrow"></div>
+        <div class="right-arrow"></div>
+        <ul class="army-item">
+            {% for soldier in soldiers %}
+            <li class="selected">
+                <div class="army-info">
+                    <div class="small-info">
+                        {% if soldier.get_d_day < 0 %}
+                        <p class="t6">전역</span></p>
+                        {% else %}
+                        <p class="t6">전역일 D - <span id="day">{{ soldier.get_d_day }}</span></p>
+                        {% endif %}
+                        <p class="t3"> <a href="#">보고싶은군인등록</a> </p>
+                        <p class="t2"><span id="discharge">{{ print_leave_day }}</span></p>
+                    </div>
+                    <div class="profile">
+                        <div class="picture"></div>
+                        <div>
+                            <p class="t3">{{ soldier.military_type }} | {{ soldier.name }} |
+                                {{ soldier.get_rank }}</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="announce box">
+        <h2 class="t4">디스캠프공지사항</h2>
+        <ul class="announce-item t2">
+            {% for notice in notices %}
+            <li><a href="#">{{ notice.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endcomment %}
+</div>
+{% endblock %}

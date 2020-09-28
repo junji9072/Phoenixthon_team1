@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/mypage.css' %}">
+    <title>My page</title>
+</head>
+
+<body>
+    <!-- 
+        프로필 수정
+        회원정보 변경
+        비번 변경
+        회원 탈퇴
+
+        군인
+        남은 날짜
+        전역일, 입대일
+        계급
+        소속 사단
+        육해공
+
+        민간인
+        이름
+        성별
+        전번
+        거주지
+     -->
+
+    <div class="container">
+        <div class="header">
+            <!-- 이미지와 함께 띄워줌 -->
+            <label class="t5">회원정보</label>
+            <div class="bottom-bar"></div>
+        </div>
+        <div class="content">
+            {% if user.is_authenticated %}
+
+            {% if user.usertype == "soldier" %}
+
+            {% for soldier in soldiers %}
+            {% if user.id == soldier.id %}
+            <div class="info-card">
+                <div class="profile t3">
+
+                    <!-- 기본 -->
+                    <div class="default-info">
+                        <label><span class="name t4">{{soldier.name}}</span>, <span
+                                class="gender t2">{{soldier.gender}}</span></label>
+                        <label class="phone t2">{{soldier.phone_number}}</label>
+                        <label class="city t2">{{soldier.city}}</label>
+                    </div>
+
+                    <!-- 군인 -->
+                    <div class="army">
+                        <label class="d-day t5">D-<span id="d-day">{{soldier.get_d_day}}</span></label>
+                        <label class="t2">입영일: <span class="enter-date">{{soldier.enter_date}}</span></label>
+                        <label class="t2">전역일: <span class="leave-date">{{ soldier.print_leave_day }}</span> </label>
+                        <label class="t1">
+                            <span class="military-type">{{soldier.military_type}}</span>,
+                            <span class="devision">{{soldier.devision}}</span>,
+                            <span class="rank">{{soldier.rank}}</span>
+                        </label>
+                    </div>
+
+
+                </div>
+                <ul class="menu t2">
+                    <a href="#">
+                        <li>보고싶은군인</li>
+                    </a>
+                    <a href="#">
+                        <li>회원 탈퇴</li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+        {% else %}
+
+        {% endif %}
+        {% endfor %}
+
+        {% else %}
+
+        {% for civil in civils %}
+        {% if user.id == civil.id %}
+        <div class="info-card">
+            <div class="profile t3">
+
+                <!-- 기본 -->
+                <div class="default-info">
+                    <label><span class="name t4">{{civil.name}}</span>, <span
+                            class="gender t2">{{civil.gender}}</span></label>
+                    <label class="phone t2">{{civil.phone_number}}</label>
+                    <label class="city t2">{{civil.city}}</label>
+                </div>
+            </div>
+            <ul class="menu t2">
+                <a href="#">
+                    <li>보고싶은군인</li>
+                </a>
+                <a href="#">
+                    <li>회원 탈퇴</li>
+                </a>
+            </ul>
+        </div>
+    </div>
+    {% else %}
+
+    {% endif %}
+    {% endfor %}
+
+    {%endif%}
+    {% endif %}
+    </div>
+
+</body>
+
+</html>

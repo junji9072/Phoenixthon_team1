@@ -1,0 +1,127 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>thiscamp-sign up</title>
+    <link rel="stylesheet" href="{% static 'css/sign_up.css' %}">
+</head>
+
+<body>
+    <!-- 헤드, 메뉴바 -->
+    <h1 id="main_title">디스캠프</h1>
+    <div id="menubar">
+        <ul id="menubar_ul">
+            <a href="#">
+                <li class="menubar_li">메뉴</li>
+            </a>
+            <a href="#">
+                <li class="menubar_li">메뉴</li>
+            </a>
+            <a href="#">
+                <li class="menubar_li">메뉴</li>
+            </a>
+        </ul>
+    </div>
+
+    <hr class="line1">
+
+    <h2 id="login_title">회원가입-군인</h2>
+
+    <hr class="line2">
+
+    <!-- 회원가입 양식 -->
+    <form method="POST" action="{% url 'soldier_signup' %}">
+        {% csrf_token %}
+        <div class="login_line">
+            <h3 class="login_sub_title">유저 종류</h3>
+            <div class="login_radio_box" required>
+                <label style="margin-right:50px;"><input type="radio" name="usertype" value="soldier"
+                        required>군인</label>
+            </div>
+        </div>
+        <div class="login_line">
+            <h3 class="login_sub_title">아이디</h3>
+            <input class="login_text_box" type="text" name="username" required>
+        </div>
+        <div class="login_line">
+            <h3 class="login_sub_title">비밀번호</h3>
+            <input class="login_text_box" type="password" name="password" required>
+        </div>
+        <div class="login_line">
+            <h3 class="login_sub_title">비밀번호 확인</h3>
+            <input class="login_text_box" type="password" name="confirm" required>
+        </div>
+        <div class="login_line">
+            <h3 class="login_sub_title">이름</h3>
+            <input class="login_text_box" type="text" name="name" required>
+        </div>
+
+        <hr class="line3">
+
+        <div class="login_line">
+            <h3 class="login_sub_title">성별</h3>
+            <div class="login_radio_box" required>
+                <label style="margin-right:50px;"><input type="radio" name="gender" value="man" required>남자</label>
+                <label style="margin-right:50px;"><input type="radio" name="gender" value="woman" required>여자</label>
+            </div>
+        </div>
+
+        <hr class="line3">
+
+        <div class="login_line">
+            <h3 class="login_sub_title">전화번호</h3>
+            <input class="login_text_box" type="text" name="phone_number" required>
+        </div>
+
+        <hr class="line3">
+
+        <div class="login_line">
+            <h3 class="login_sub_title">거주지역</h3>
+            <input class="login_text_box" type="text" name="city" required>
+        </div>
+
+        <hr class="line3">
+
+        <div class="login_line">
+            <h3 class="login_sub_title">소속사단</h3>
+            <input class="login_text_box" type="text" name="devision" required>
+        </div>
+
+        <hr class="line3">
+
+        <div class="login_line">
+            <h3 class="login_sub_title">조직</h3>
+            <div class="login_radio_box" style="margin-right:30px;" required>
+                <label class="login_radio_column" style="margin-right:50px;"><input type="radio" name="military_type"
+                        value="army" required>육군</label>
+                <label class="login_radio_column" style="margin-right:50px;"><input type="radio" name="military_type"
+                        value="navy" required>해군</label>
+                <label class="login_radio_column" style="margin-right:50px;"><input type="radio" name="military_type"
+                        value="marin" required>해병대</label>
+                <label class="login_radio_column" style="margin-right:50px;"><input type="radio" name="military_type"
+                        value="airforce" required>공군</label>
+                <label class="login_radio_column" style="margin-right:50px; margin-bottom: 30px;"><input type="radio"
+                        name="military_type" value="other" required>기타</label>
+            </div>
+        </div>
+
+        <hr class="line3">
+
+        <div class="login_line">
+            <h3 class="login_sub_title">입대날짜</h3>
+            <input class="login_date_box" type="date" name="enter_date" required>
+        </div>
+
+        <hr class="line3">
+
+        <div class="login_line" style="margin-top:10px;">
+            <input class="login_btn" type="submit" value="회원가입">
+        </div>
+    </form>
+</body>
+
+</html>

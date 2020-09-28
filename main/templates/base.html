@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디스캠프</title>
+
+    <!-- My Styles -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/army_card.css' %}">
+    <link rel="stylesheet" href="{% block style %}{% endblock %}">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <a href="{% url 'home' %}">
+            <div class="logo-box">
+                <img src="{% static 'image/logo.png' %}" alt="logo.png">
+            </div>
+        </a>
+
+        <ul class="menu-box">
+            <a href="{% url 'mypage' %}">
+                <li>
+                    마이페이지
+                </li>
+            </a>
+            <a href="#">
+                <li>
+                    메뉴
+                </li>
+            </a>
+            <a href="">
+                <li>
+                    메뉴
+                </li>
+            </a>
+            <a href="#">
+                <li>
+                    메뉴
+                </li>
+            </a>
+        </ul>
+        <ul class="account-box">
+            {% if user.is_authenticated %}
+            <p>{{user}} 님 환영합니다.</p>
+            <a href="{% url 'logout' %}?next={% url 'home' %}" style="margin-left: 7px;">
+                <li>
+                    로그아웃
+                </li>
+            </a>
+            {% else %}
+            <a href="{% url 'login' %}" style="margin-left: 7px;">
+                <li>
+                    로그인
+                </li>
+            </a>
+
+            <a href="{% url 'signup_select' %}" style="margin-left: 7px;">
+                <li>
+                    회원가입
+                </li>
+            </a>
+            {% endif %}
+        </ul>
+
+        {% comment %}
+        {% if user.is_authenticated %}
+        <h1> {{ user }}님 환영합니다.</h1>
+        {% else %}
+        <h1> . </h1>
+        {% endif %}
+
+        {% endcomment %}
+    </div>
+
+    {% block content %}{% endblock %}
+
+    <!-- My Scripts -->
+    <script src="{% static 'js/scroll.js' %}"></script>
+    <script src="{% static 'js/slide.js' %}"></script>
+</body>
+
+</html>

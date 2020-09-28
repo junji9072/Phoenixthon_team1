@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}질문-생성{% endblock %}
+{% block style %}{% static 'css/create.css' %}{% endblock %}
+{% block title2 %}질문-생성{% endblock %}
+{% block content %}
+<!-- 작성 -->
+    <form method="POST" action="">
+        {% csrf_token %}
+        <input id="title_box" type="text" name="title" placeholder="제목을 입력해주세요." required>
+            <textarea id="content_box" name="content" placeholder="내용을 입력해주세요." required></textarea>
+
+        <div id="btn_set">
+            <input class="btn" type="submit" value="확인">
+            <a href="{% url 'question_list' %}">
+                <button class="btn" type="button" formnovalidate>취소</button>
+            </a>
+        </div>
+    </form>
+    
+{% endblock %}

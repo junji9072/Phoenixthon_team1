@@ -1,0 +1,41 @@
+form{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input:focus {
+    outline: none;
+}
+textarea:focus{
+    outline: none;
+}
+
+#title_box{
+    width: 60%;
+    height: 35px;
+    font-size: 20px;
+    margin-bottom: 30px;
+    margin-top:
+}
+
+#content_box{
+    width: 60%;
+    height: 500px;
+    font-size: 20px;
+    resize: none;
+}
+
+.btn{
+    width: 150px;
+    height: 35px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+#btn_set{
+    width: 60%;
+    float: right;
+    text-align: right;
+}

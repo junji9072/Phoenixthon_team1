@@ -1,0 +1,105 @@
+.left-arrow,
+.right-arrow {
+    height: 100%;
+    width: 20%;
+    position: absolute;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.left-arrow {
+    left: -50px;
+}
+
+.right-arrow {
+    right: -50px;
+}
+
+.army-card {
+    background-color: #fff;
+    box-shadow: 1px 5px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+}
+
+.army-card-view {
+    height: 400px;
+    display: flex;
+    position: absolute;
+    left: 0;
+    transition: transform .5s ease;
+}
+
+.army-card {
+    width: 700px;
+    height: 400px;
+    transition: transform .5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.army-card-selected {
+    opacity: 1;
+    transform: scale(1.1);
+    transition: transform .5s ease;
+    z-index: 10;
+}
+
+.small-info,
+.d-day {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.army-info {
+    width: 90%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.small-info {
+    text-align: center;
+}
+
+.d-day {
+    text-align: right;
+}
+
+.small-info p {
+    margin-bottom: 20px;
+}
+
+.picture {
+    width: 40px;
+    height: 40px;
+    background-color: var(--PERSONAL_COLOR3);
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+.army-menu {
+    padding: 0;
+    width: 80%;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.army-menu li:not(:nth-last-child(1)) {
+    margin-right: 20px;
+    text-align: center;
+}
+
+.army-menu li:hover {
+    cursor: pointer;
+}
